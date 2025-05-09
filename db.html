@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Media</title>
+    <script>
+        // Function to retrieve and display stored data
+        function displayStoredData() {
+            const adminData = localStorage.getItem('adminData');
+            const userData = localStorage.getItem('userData');
+
+            document.getElementById('adminDataDisplay').textContent = adminData ? adminData : 'No admin data available.';
+            document.getElementById('userDataDisplay').textContent = userData ? userData : 'No user data available.';
+        }
+
+        // Load stored data when the page is loaded
+        window.onload = displayStoredData;
+    </script>
+</head>
+<body>
+    <h1>Storage Media</h1>
+    <p>Data from admin.html:</p>
+    <div id="adminDataDisplay" style="border: 1px solid #ccc; padding: 10px; margin-top: 10px;"></div>
+    
+    <p>Data from user.html:</p>
+    <div id="userDataDisplay" style="border: 1px solid #ccc; padding: 10px; margin-top: 10px;"></div>
+</body>
+</html>

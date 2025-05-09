@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User View - Mother's Day</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    
+  <div class="container">
+    <h2>❤️ Your Mother's Day Tribute</h2>
+    <div id="displayArea"></div>
+  </div>
+
+  <script>
+    const index = parseInt(localStorage.getItem("userIndex"));
+    const entries = JSON.parse(localStorage.getItem("entries") || "[]");
+    const display = document.getElementById("displayArea");
+
+    if (index > 0 && index <= entries.length) {
+      const entry = entries[index - 1];
+      display.innerHTML = `
+        <div class="card">
+          <img src="${entry.image}" alt="Tribute Image" />
+          <p>${entry.message}</p>
+        </div>
+      `;
+    } else {
+      display.innerHTML = `<p>❌ No tribute found for index <strong>${index}</strong>.</p>`;
+    }
+  </script>
+</body>
+</html>

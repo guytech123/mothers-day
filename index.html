@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mother's Day Web Mart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🌸 Mother's Day Web Mart 🌸</h1>
+    <p>Enter Access Code:</p>
+    <input type="text" id="accessInput" placeholder="Enter code..." />
+    <button onclick="checkAccess()">Continue</button>
+  </div>
+
+  <script>
+    function checkAccess() {
+      const code = document.getElementById("accessInput").value.trim().toLowerCase();
+      if (code === "mom") {
+        window.location.href = "admin.html";
+      } else if (!isNaN(code) && parseInt(code) > 0) {
+        localStorage.setItem("userIndex", code);
+        window.location.href = "user.html";
+      } else {
+        alert("Invalid code. Use 'mom' for admin or a number for user.");
+      }
+    }
+  </script>
+</body>
+</html>

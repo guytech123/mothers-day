@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Upload - Mother's Day</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>👩‍💼 Admin Panel - Upload Tribute</h2>
+
+    <form id="adminForm">
+      <label>Upload Mother's Image:</label>
+      <input type="file" id="imageInput" accept="image/*" required />
+
+      <label>Message:</label>
+      <textarea id="messageInput" rows="4" required></textarea>
+
+      <button type="submit">Upload</button>
+    </form>
+
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    document.getElementById("adminForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const imageFile = document.getElementById("imageInput").files[0];
+      const message = document.getElementById("messageInput").value.trim();
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const imageData = evt.target.result;
+        const entries = JSON.parse(localStorage.getItem("entries") || "[]");
+        const newEntry = { image: imageData, message };
+        entries.push(newEntry);
+        localStorage.setItem("entries", JSON.stringify(entries));
+
+        const newIndex = entries.length;
+        document.getElementById("result").innerHTML = `
+          ✅ Upload successful!<br/>
+          Share this code with the user: <strong>${newIndex}</strong>
+        `;
+        document.getElementById("adminForm").reset();
+      };
+
+      reader.readAsDataURL(imageFile);
+    });
+  </script>
+</body>
+</html>
