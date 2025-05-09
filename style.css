@@ -70,6 +70,7 @@ button:hover {
 }
 
 /* Add responsiveness */
+/* Add responsiveness */
 @media (max-width: 768px) {
     body {
         padding: 10px;
@@ -82,21 +83,25 @@ button:hover {
     input, textarea, button {
         font-size: 14px;
         padding: 8px;
+        font-weight: bold; /* Make font bolder */
     }
 
     h1, h2 {
         font-size: 20px;
+        font-weight: bold; /* Make font bolder */
     }
 }
 
 @media (max-width: 480px) {
     h1, h2 {
         font-size: 18px;
+        font-weight: bold; /* Make font bolder */
     }
 
     input, textarea, button {
         font-size: 12px;
         padding: 6px;
+        font-weight: bold; /* Make font bolder */
     }
 
     .container {
