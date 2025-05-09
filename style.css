@@ -81,8 +81,8 @@ button:hover {
     }
 
     input, textarea, button {
-        font-size: 14px;
-        padding: 8px;
+        font-size: 16px; /* Increase font size */
+        padding: 12px; /* Increase padding */
         font-weight: bold; /* Make font bolder */
     }
 
@@ -99,8 +99,8 @@ button:hover {
     }
 
     input, textarea, button {
-        font-size: 12px;
-        padding: 6px;
+        font-size: 14px; /* Increase font size */
+        padding: 10px; /* Increase padding */
         font-weight: bold; /* Make font bolder */
     }
 
